@@ -1,0 +1,214 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+}
+
+/* Arcade Cabinet Structure */
+.arcade-cabinet {
+    width: 800px;
+    background: #333;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* Marquee Styling */
+.marquee {
+    background: #222;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+}
+
+.marquee h1 {
+    color: #ff0;
+    text-shadow: 0 0 10px #ff0;
+    font-size: 24px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Screen Styling */
+.screen {
+    background: #000;
+    border: 10px solid #444;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen-content {
+    background: #000;
+    min-height: 400px;
+    position: relative;
+}
+
+/* CRT Effect */
+.crt-effect {
+    position: relative;
+    height: 100%;
+}
+
+.crt-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+}
+
+/* Game Selection Menu */
+.game-selection {
+    text-align: center;
+    padding: 20px;
+}
+
+.game-selection h2 {
+    color: #ff0;
+    margin-bottom: 30px;
+    animation: blink 1s step-end infinite;
+}
+
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Buttons Styling */
+.arcade-button {
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.arcade-button:hover {
+    background: #666;
+    transform: scale(1.05);
+}
+
+.arcade-button:active {
+    transform: scale(0.95);
+}
+
+/* Control Panel */
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #222;
+    border-radius: 0 0 10px 10px;
+}
+
+.joystick {
+    width: 80px;
+    height: 80px;
+    background: #444;
+    border-radius: 50%;
+    position: relative;
+}
+
+.stick {
+    width: 30px;
+    height: 30px;
+    background: #ff0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.action-button {
+    width: 50px;
+    height: 50px;
+    background: #f00;
+    border-radius: 50%;
+    border: none;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action-button:hover {
+    transform: scale(1.1);
+}
+
+.action-button:active {
+    transform: scale(0.9);
+}
+
+/* Animations */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
+    }
+    to {
+        text-shadow: 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
+    .arcade-cabinet {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .screen-content {
+        min-height: 300px;
+    }
+    
+    .marquee h1 {
+        font-size: 18px;
+    }
+    
+    .arcade-button {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+} 
